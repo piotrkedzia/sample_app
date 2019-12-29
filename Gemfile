@@ -62,6 +62,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'guard'
   gem 'simplecov', require: false
+  gem 'rails-controller-testing'
 end
 
 group :production do

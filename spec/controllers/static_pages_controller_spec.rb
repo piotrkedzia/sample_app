@@ -4,23 +4,44 @@ require 'rails_helper'
 
 RSpec.describe StaticPagesController, type: :controller do
   describe 'GET #home' do
-    it 'returns http success' do
+    before do
       get :home
+    end
+
+    it 'returns http success' do
       expect(response).to have_http_status(:success)
+    end
+
+    it 'renders the :home template' do
+      expect(response).to render_template('home')
     end
   end
 
   describe 'GET #help' do
-    it 'returns http success' do
+    before do
       get :help
+    end
+
+    it 'returns http success' do
       expect(response).to have_http_status(:success)
+    end
+
+    it 'renders the :help template' do
+      expect(response).to render_template('help')
     end
   end
 
   describe 'GET #about' do
-    it 'returns http success' do
+    before do
       get :about
+    end
+
+    it 'returns http success' do
       expect(response).to have_http_status(:success)
+    end
+
+    it 'renders the :about template' do
+      expect(response).to render_template('about')
     end
   end
 end
