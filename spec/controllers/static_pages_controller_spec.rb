@@ -44,4 +44,18 @@ RSpec.describe StaticPagesController, type: :controller do
       expect(response).to render_template('about')
     end
   end
+
+  describe 'GET #contact' do
+    before do
+      get :contact
+    end
+
+    it 'returns http success' do
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'renders the :contact template' do
+      expect(response).to render_template('contact')
+    end
+  end
 end
