@@ -2,7 +2,7 @@
 %html
   %head
     %title
-      = "#{ yield(:title) } | Sample App"
+      = full_title(page_title: yield(:title))
     = csrf_meta_tags
     = csp_meta_tag
 
