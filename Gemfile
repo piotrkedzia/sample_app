@@ -34,6 +34,8 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'chromedriver-helper'
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'guard'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
