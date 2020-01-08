@@ -24,6 +24,9 @@ RSpec.describe User, type: :model do
       it { should_not allow_value(email).for(:email) }
     end
 
+    it { should validate_presence_of(:password) }
+    it { should validate_length_of(:password).is_at_least(6)}
+
     describe 'uniqueness of the email field' do
       before do
         create(:user, email: 'test@example.com')
