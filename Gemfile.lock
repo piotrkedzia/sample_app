@@ -50,6 +50,7 @@ GEM
     ast (2.4.0)
     autoprefixer-rails (9.7.3)
       execjs
+    bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -89,6 +90,13 @@ GEM
     erubis (2.7.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
+    factory_bot (5.1.1)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.1.1)
+      factory_bot (~> 5.1.0)
+      railties (>= 4.2.0)
+    faker (2.10.0)
+      i18n (>= 1.6, < 1.8)
     ffi (1.11.3)
     formatador (0.2.5)
     globalid (0.4.2)
@@ -254,6 +262,8 @@ GEM
       rubyzip (>= 1.2.2)
     sexp_processor (4.13.0)
     shellany (0.0.1)
+    shoulda-matchers (4.1.2)
+      activesupport (>= 4.2.0)
     simplecov (0.17.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -298,12 +308,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   bootsnap (>= 1.1.0)
   bootstrap-sass
   byebug
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  factory_bot_rails
+  faker
   guard
   guard-livereload (~> 2.5)
   haml-rails (~> 2.0)
@@ -319,6 +332,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 5.0)
   selenium-webdriver
+  shoulda-matchers
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
