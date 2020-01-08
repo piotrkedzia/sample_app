@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe 'validations' do
+  describe 'Validations' do
     it { should allow_value('Example User').for(:name) }
     it { should allow_value('user@example.com').for(:email) }
 
@@ -38,6 +38,13 @@ RSpec.describe User, type: :model do
         duplicate_user = build(:user, email: 'test@example.com'.upcase)
         expect(duplicate_user).to be_invalid
       end
+    end
+  end
+
+  describe 'Downcase user email before save' do
+    it 'persists downcase version of a user email' do
+      user = create(:user, email: 'TEST@EXAMPLE.COM')
+      expect(user.email).to eq 'test@example.com'
     end
   end
 end
