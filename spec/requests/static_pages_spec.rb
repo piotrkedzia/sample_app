@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe StaticPagesController, type: :controller do
+RSpec.describe 'Static Pages', type: :request do
   describe 'GET #home' do
     before do
-      get :home
+      get home_path
     end
 
     it 'returns http success' do
@@ -19,7 +19,7 @@ RSpec.describe StaticPagesController, type: :controller do
 
   describe 'GET #help' do
     before do
-      get :help
+      get help_path
     end
 
     it 'returns http success' do
@@ -33,7 +33,7 @@ RSpec.describe StaticPagesController, type: :controller do
 
   describe 'GET #about' do
     before do
-      get :about
+      get about_path
     end
 
     it 'returns http success' do
@@ -47,7 +47,7 @@ RSpec.describe StaticPagesController, type: :controller do
 
   describe 'GET #contact' do
     before do
-      get :contact
+      get contact_path
     end
 
     it 'returns http success' do
