@@ -24,12 +24,4 @@ describe 'Static pages' do
       expect(page).to have_text 'This is the help page'
     end
   end
-
-  describe 'Log in page' do
-    it 'should display a log in page' do
-      visit signup_path
-
-      expect(page).to have_text 'Users#new'
-    end
-  end
 end
