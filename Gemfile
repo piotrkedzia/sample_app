@@ -9,6 +9,7 @@ gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.2'
 gem 'haml-rails', '~> 2.0'
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
 gem 'mini_racer', platforms: :ruby
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
