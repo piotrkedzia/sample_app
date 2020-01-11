@@ -9,6 +9,7 @@ require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'support/factory_bot'
+require './spec/helpers/session'
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -26,6 +27,8 @@ RSpec.configure do |config|
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
+
+  config.include Helpers::Session, type: :request
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
