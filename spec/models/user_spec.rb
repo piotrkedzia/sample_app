@@ -50,4 +50,9 @@ RSpec.describe User, type: :model do
       expect(user.email).to eq 'test@example.com'
     end
   end
+
+  it 'authenticated? should return false for a user with nil digest' do
+    user = create(:user)
+    expect(user.authenticated?('')).to eq false
+  end
 end

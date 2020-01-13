@@ -49,8 +49,14 @@ RSpec.describe 'Session', type: :request do
         follow_redirect!
 
         delete logout_path
-        expect(is_logged_in?).to be false
         expect(response).to redirect_to root_url
+        follow_redirect!
+        expect(is_logged_in?).to be false
+        expect(response.body).to_not include('Account')
+
+        # Simulate a user clicking logout in a second window.
+        delete logout_path
+        follow_redirect!
       end
     end
   end
