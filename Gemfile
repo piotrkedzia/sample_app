@@ -16,12 +16,17 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'sqlite3', '1.3.13'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'pry'
 end
 
 group :development do
@@ -36,8 +41,6 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'chromedriver-helper'
-  gem 'factory_bot_rails'
-  gem 'faker'
   gem 'guard'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
