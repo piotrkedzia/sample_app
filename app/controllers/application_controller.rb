@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_user?(user)
+    user == current_user
+  end
+
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
     !current_user.nil?
@@ -40,6 +44,15 @@ class ApplicationController < ActionController::Base
     cookies.delete(:remember_token)
   end
 
-  helper_method :current_user
-  helper_method :logged_in?
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Stores the URL trying to be accessed
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+
+  helper_method :current_user, :current_user?, :logged_in?
 end

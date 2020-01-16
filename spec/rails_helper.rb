@@ -1,6 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'simplecov'
 require 'spec_helper'
+require 'bcrypt'
 ENV['RAILS_ENV'] ||= 'test'
 SimpleCov.start
 require File.expand_path('../config/environment', __dir__)
@@ -16,6 +17,10 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
+end
+
+silence_warnings do
+  BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
 end
 
 RSpec.configure do |config|
