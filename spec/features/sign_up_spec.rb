@@ -30,7 +30,7 @@ RSpec.feature 'SignUps', type: :feature do
 
     click_button 'Create my account'
 
-    expect(current_path).to eq(user_path(User.last))
-    expect(page).to have_selector('div.alert.alert-success', text: 'Welcome to the Sample App!')
+    expect(current_path).to eq(root_path)
+    expect(page).to have_selector('div.alert.alert-info', text: 'Please check your email to activate your account.')
   end
 end
