@@ -54,5 +54,13 @@ class ApplicationController < ActionController::Base
     session[:forwarding_url] = request.original_url if request.get?
   end
 
+  def logged_in_user
+    return if logged_in?
+
+    store_location
+    flash[:danger] = 'Please log in.'
+    redirect_to login_url
+  end
+
   helper_method :current_user, :current_user?, :logged_in?
 end
