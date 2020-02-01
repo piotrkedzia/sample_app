@@ -62,5 +62,6 @@ class ApplicationController < ActionController::Base
     redirect_to login_url
   end
 
+
   helper_method :current_user, :current_user?, :logged_in?
 end

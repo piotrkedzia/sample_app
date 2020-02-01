@@ -55,4 +55,19 @@ RSpec.describe User, type: :model do
     user = create(:user)
     expect(user.authenticated?(:remember, '')).to eq false
   end
+
+  it 'should follow and unfollow a user' do
+    user1 = create(:user)
+    user2 = create(:user)
+
+    expect(user1.following?(user2)).to eq false
+    expect(user2.following?(user1)).to eq false
+
+    user1.follow(user2)
+    expect(user1.following?(user2)).to eq true
+    expect(user2.followers).to include(user1)
+
+    user1.unfollow(user2)
+    expect(user1.following?(user2)).to eq false
+  end
 end
